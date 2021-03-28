@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+import 'package:app/home_screen.dart';
+import 'package:app/GPA.dart';
+import 'package:app/course_notes.dart';
+import 'package:app/bookssem1.dart';
+import 'home_screen.dart';
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+    );
+  }
+}
