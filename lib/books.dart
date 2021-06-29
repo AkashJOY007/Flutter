@@ -42,8 +42,8 @@ class _BooksState extends State<Books> {
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 )),
                 child: Container(
-                  height: hp(45),
-                  width: wp(45),
+                  height: hp(60),
+                  width: wp(60),
                   decoration: BoxDecoration(
                       // color: Colors.blue,
                       image: DecorationImage(

@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:app/fontlib/my_flutter_app_icons.dart';
 import 'package:responsive_screen/responsive_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class detail {
   String subject, asset, subtext;
@@ -88,11 +89,17 @@ class _booksyearthreeState extends State<booksyearthree>
       length: 2,
       child: Scaffold(
           appBar: AppBar(
+            centerTitle: true,
             backgroundColor: Colors.purple,
-            title: Text('Third Year',
-                style: TextStyle(
-                  fontSize: hp(5),
-                )),
+            title: Text(
+              'Third Year',
+              style: GoogleFonts.castoro(
+                textStyle: Theme.of(context).textTheme.headline4,
+                fontSize: 48,
+                fontWeight: FontWeight.w700,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
             bottom: TabBar(
               indicatorColor: Colors.white,
               labelColor: Colors.white,

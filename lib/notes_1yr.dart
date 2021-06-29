@@ -6,6 +6,7 @@ import 'package:responsive_screen/responsive_screen.dart';
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:math';
+import 'package:google_fonts/google_fonts.dart';
 
 class detail {
   String subject, asset, url;
@@ -78,8 +79,17 @@ class _yearoneState extends State<yearone>
       child: Scaffold(
           backgroundColor: Colors.grey[200],
           appBar: AppBar(
+            centerTitle: true,
             backgroundColor: Colors.blue,
-            title: Text('First Year'),
+            title: Text(
+              'First Year',
+              style: GoogleFonts.castoro(
+                textStyle: Theme.of(context).textTheme.headline4,
+                fontSize: 48,
+                fontWeight: FontWeight.w700,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
             bottom: TabBar(
               indicatorColor: Colors.white,
               tabs: <Widget>[

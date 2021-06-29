@@ -4,34 +4,40 @@ import 'package:app/fontlib/my_flutter_app_icons.dart';
 // import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:responsive_screen/responsive_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 class detail {
   String subject, asset, subtext;
   detail(this.subject, this.asset, this.subtext);
 }
+
 class booksyearfour extends StatefulWidget {
   @override
   _booksyearfourState createState() => _booksyearfourState();
 }
 
-class _booksyearfourState extends State<booksyearfour>with SingleTickerProviderStateMixin{
+class _booksyearfourState extends State<booksyearfour>
+    with SingleTickerProviderStateMixin {
   AnimationController _animationC;
   Animation _animation;
   @override
   void initState() {
     // TODO: implement initState
-    _animationC = AnimationController(vsync: this,duration:Duration(seconds: 2));
-    _animationC.repeat(reverse:true);
-    _animation = Tween(begin:2.0,end:15.0).animate(_animationC)..addListener(() {
-      setState((){
+    _animationC =
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _animationC.repeat(reverse: true);
+    _animation = Tween(begin: 2.0, end: 15.0).animate(_animationC)
+      ..addListener(() {
+        setState(() {});
       });
-    });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-  var size = MediaQuery.of(context).size;
-  final wp = Screen(context).wp; //specify wp
-  final hp = Screen(context).hp;
+    var size = MediaQuery.of(context).size;
+    final wp = Screen(context).wp; //specify wp
+    final hp = Screen(context).hp;
     List<detail> data1 = [], data2 = [];
     // data2.add(detail("DBMS", "assets/images/3.png",
     //     "https://drive.google.com/file/d/1o8hYb7HD_FY_7penY2H9WIvxAdAt9tGG/view?usp=sharing"));
@@ -49,8 +55,12 @@ class _booksyearfourState extends State<booksyearfour>with SingleTickerProviderS
     //     "https://drive.google.com/file/d/1aNOKMt4uJgwzU6f3FHpGH1oiI-bupnOI/view?usp=sharing"));
     //  data2.add(detail("Fibre Optics And Opto-Electronics", "assets/images/2.png",
     //     "https://drive.google.com/file/d/1aNOKMt4uJgwzU6f3FHpGH1oiI-bupnOI/view?usp=sharing"));
-    data1.add(detail("IOT", "assets/images/iot.jpg", "https://drive.google.com/file/d/15IHz2ymShvUle2so2ZG_8Z3_0KUqz_dM/view?usp=sharing"));
-    data1.add(detail("Web Programming", "https://images-na.ssl-images-amazon.com/images/I/51uPb7Ca1PL._SX258_BO1,204,203,200_.jpg", "https://drive.google.com/file/d/14RybgVY-iHZA5g3ePcrEJYSCtbHC3ETT/view?usp=sharing"));
+    data1.add(detail("IOT", "assets/images/iot.jpg",
+        "https://drive.google.com/file/d/15IHz2ymShvUle2so2ZG_8Z3_0KUqz_dM/view?usp=sharing"));
+    data1.add(detail(
+        "Web Programming",
+        "https://images-na.ssl-images-amazon.com/images/I/51uPb7Ca1PL._SX258_BO1,204,203,200_.jpg",
+        "https://drive.google.com/file/d/14RybgVY-iHZA5g3ePcrEJYSCtbHC3ETT/view?usp=sharing"));
     // data1.add(detail("Mechanical", "assets/images/books.png", "subtext1"));
     // data1.add(detail("Mechanical", "assets/images/books.png", "subtext1"));
     // data1.add(detail("Mechanical", "assets/images/books.png", "subtext1"));
@@ -63,29 +73,34 @@ class _booksyearfourState extends State<booksyearfour>with SingleTickerProviderS
       length: 2,
       child: Scaffold(
           appBar: AppBar(
+            centerTitle: true,
             backgroundColor: Colors.yellow.shade800,
-            title: Text('Fourth Year',style: TextStyle(
-              fontSize: hp(5),
-            )),
+            title: Text(
+              'Fourth Year',
+              style: GoogleFonts.castoro(
+                textStyle: Theme.of(context).textTheme.headline4,
+                fontSize: 48,
+                fontWeight: FontWeight.w700,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
             bottom: TabBar(
               indicatorColor: Colors.black,
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey.shade300,
               tabs: <Widget>[
                 Tab(
-                     child:Text(
-                      'Sem 7',style: TextStyle(
-                        fontSize:hp(2)
-                      ),
-                    ),
+                  child: Text(
+                    'Sem 7',
+                    style: TextStyle(fontSize: hp(2)),
                   ),
+                ),
                 Tab(
-                    child:Text(
-                      'Sem 8',style: TextStyle(
-                        fontSize:hp(2)
-                      ),
-                    ),
+                  child: Text(
+                    'Sem 8',
+                    style: TextStyle(fontSize: hp(2)),
                   ),
+                ),
               ],
             ),
           ),
@@ -199,192 +214,192 @@ class _booksyearfourState extends State<booksyearfour>with SingleTickerProviderS
 //   }
 // }
 
-_launchurl(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Error!';
-  }
-}
-
-_launchUrlApp(String url) async {
-  if (await canLaunch(url)) {
-    await launch(
-      url,
-      forceSafariVC: true,
-      forceWebView: true,
-    );
-  } else {
-    throw 'Error!';
-  }
-}
-
-Widget item(
-    BuildContext context, int index, String subject, String url, String asset) {
-      if(asset.contains("http")){
-  var size = MediaQuery.of(context).size;
-  final wp = Screen(context).wp; //specify wp
-  final hp = Screen(context).hp;
-  return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: Container(
-      child: FittedBox(
-        child: Material(
-            color: Colors.white,
-            elevation: 10.0,
-            borderRadius: BorderRadius.circular(24.0),
-            shadowColor: Color(0x802196F3),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: tab(context, subject, url, wp, hp),
-                  ),
-                ),
-                SizedBox(
-                  width: wp(1),
-                ),
-                Container(
-                  // width: 190,
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.black)),
-                  height: hp(20),
-                  width: wp(30),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(0),
-                      bottomLeft: Radius.circular(0),
-                    ),
-                    // child:Image.network(asset,fit:BoxFit.fill),
-                    child: CachedNetworkImage(
-                    placeholder: (context, asset) =>
-                        Image.asset('assets/images/loading.gif'),
-                    fit: BoxFit.fill,
-                    alignment: Alignment.centerRight,
-                    imageUrl: asset,
-                    fadeInDuration: Duration(milliseconds: 500),
-                    placeholderFadeInDuration: Duration(milliseconds: 1000),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                  ),
-                  ),
-                ),
-              ],
-            )),
-      ),
-    ),
-  );
-      }
-      else{
-        var size = MediaQuery.of(context).size;
-  final wp = Screen(context).wp; //specify wp
-  final hp = Screen(context).hp;
-  return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: Container(
-      child: FittedBox(
-        child: Material(
-            color: Colors.white,
-            elevation: 10.0,
-            borderRadius: BorderRadius.circular(24.0),
-            shadowColor: Color(0x802196F3),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: tab(context, subject, url, wp, hp),
-                  ),
-                ),
-                SizedBox(
-                  width: wp(1),
-                ),
-                Container(
-                  // width: 190,
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.black)),
-                  height: hp(20),
-                  width: wp(30),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(0),
-                      bottomLeft: Radius.circular(0),
-                    ),
-                    child: Image(
-                      fit: BoxFit.fill,
-                      alignment: Alignment.topRight,
-                      image: AssetImage(asset),
-                    ),
-                  ),
-                ),
-              ],
-            )),
-      ),
-    ),
-  );
-      }
+  _launchurl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Error!';
     }
+  }
 
-Widget tab(BuildContext context, String s, String url, var wp, var hp) {
-  var size = MediaQuery.of(context).size;
-  return Column(
-  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: <Widget>[
-    Padding(
-      padding: const EdgeInsets.fromLTRB(5,2,5,5),
-      child: Container(
-    height: hp(5),
-    width: wp(74),
-    child: Align(
-      alignment: Alignment.topLeft,
-                child: Text(
-    s,
-    softWrap: true,
-    overflow: TextOverflow.ellipsis,
-    maxLines: 2,
-    textAlign: TextAlign.left,
-    style: TextStyle(
-     fontSize: hp(3),
-      fontWeight: FontWeight.bold,
-    ),
-      ),
-    ),
-      ),
-    ),
-    Container(
-    
-    height: hp(5),
-    width: wp(30),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(25),
-      // color:Color.fromARGB(255, 27, 28, 30),
-      boxShadow: [BoxShadow(
-        color:Color.fromARGB(130, 237, 125, 50),
-        blurRadius: _animation.value,
-        spreadRadius: _animation.value,
-      )]
-    ),
-    child: Padding(
-      padding: EdgeInsets.only(left:0),
-      child: ElevatedButton.icon(
-        style: ElevatedButton.styleFrom(primary: Colors.orange[600]),
-        label: Text(
-      'View',
-        ),
-        icon: Icon(
-      MyFlutterApp.drive,
-      size: 15,
+  _launchUrlApp(String url) async {
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: true,
+        forceWebView: true,
+      );
+    } else {
+      throw 'Error!';
+    }
+  }
+
+  Widget item(BuildContext context, int index, String subject, String url,
+      String asset) {
+    if (asset.contains("http")) {
+      var size = MediaQuery.of(context).size;
+      final wp = Screen(context).wp; //specify wp
+      final hp = Screen(context).hp;
+      return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Container(
+          child: FittedBox(
+            child: Material(
+                color: Colors.white,
+                elevation: 10.0,
+                borderRadius: BorderRadius.circular(24.0),
+                shadowColor: Color(0x802196F3),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: tab(context, subject, url, wp, hp),
+                      ),
+                    ),
+                    SizedBox(
+                      width: wp(1),
+                    ),
+                    Container(
+                      // width: 190,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black)),
+                      height: hp(20),
+                      width: wp(30),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          bottomLeft: Radius.circular(0),
+                        ),
+                        // child:Image.network(asset,fit:BoxFit.fill),
+                        child: CachedNetworkImage(
+                          placeholder: (context, asset) =>
+                              Image.asset('assets/images/loading.gif'),
+                          fit: BoxFit.fill,
+                          alignment: Alignment.centerRight,
+                          imageUrl: asset,
+                          fadeInDuration: Duration(milliseconds: 500),
+                          placeholderFadeInDuration:
+                              Duration(milliseconds: 1000),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
           ),
-        onPressed: () {
-      _launchurl(url);
-        },
-      ),
-    ),
         ),
-  ],
+      );
+    } else {
+      var size = MediaQuery.of(context).size;
+      final wp = Screen(context).wp; //specify wp
+      final hp = Screen(context).hp;
+      return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Container(
+          child: FittedBox(
+            child: Material(
+                color: Colors.white,
+                elevation: 10.0,
+                borderRadius: BorderRadius.circular(24.0),
+                shadowColor: Color(0x802196F3),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: tab(context, subject, url, wp, hp),
+                      ),
+                    ),
+                    SizedBox(
+                      width: wp(1),
+                    ),
+                    Container(
+                      // width: 190,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black)),
+                      height: hp(20),
+                      width: wp(30),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          bottomLeft: Radius.circular(0),
+                        ),
+                        child: Image(
+                          fit: BoxFit.fill,
+                          alignment: Alignment.topRight,
+                          image: AssetImage(asset),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          ),
+        ),
+      );
+    }
+  }
+
+  Widget tab(BuildContext context, String s, String url, var wp, var hp) {
+    var size = MediaQuery.of(context).size;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.fromLTRB(5, 2, 5, 5),
+          child: Container(
+            height: hp(5),
+            width: wp(74),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                s,
+                softWrap: true,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: hp(3),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          height: hp(5),
+          width: wp(30),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),
+              // color:Color.fromARGB(255, 27, 28, 30),
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromARGB(130, 237, 125, 50),
+                  blurRadius: _animation.value,
+                  spreadRadius: _animation.value,
+                )
+              ]),
+          child: Padding(
+            padding: EdgeInsets.only(left: 0),
+            child: ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(primary: Colors.orange[600]),
+              label: Text(
+                'View',
+              ),
+              icon: Icon(
+                MyFlutterApp.drive,
+                size: 15,
+              ),
+              onPressed: () {
+                _launchurl(url);
+              },
+            ),
+          ),
+        ),
+      ],
     );
-}
+  }
 }

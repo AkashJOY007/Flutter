@@ -174,6 +174,8 @@ Widget item(BuildContext context, int index, String subject, String url,
           child: ListTile(
             subtitle: Text(
               subtext,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
             contentPadding:
                 EdgeInsets.only(top: 8, right: 8, bottom: 8, left: 16),

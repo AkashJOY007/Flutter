@@ -327,7 +327,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     child: Text(
                                                       'Placement Material',
                                                       style: TextStyle(
-                                                          fontSize: hp(2.05),
+                                                          fontSize: hp(1.9),
                                                           fontWeight:
                                                               FontWeight.bold,
                                                           fontFamily:

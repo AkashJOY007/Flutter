@@ -23,7 +23,7 @@ class notes extends StatelessWidget {
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             ClipPath(
               clipper: ShapeBorderClipper(
                   shape: RoundedRectangleBorder(
@@ -39,6 +39,7 @@ class notes extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 15),
             Flexible(
               child: GridView.count(
                 crossAxisCount:
